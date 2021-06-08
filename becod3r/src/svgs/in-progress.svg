@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="950" height="463.6" viewBox="0 0 1000 488">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #d406d4;
+        stroke: #ef0393;
+        stroke-width: 0;
+      }
+
+      .cls-1, .cls-2 {
+        opacity: 0.55;
+      }
+
+      .cls-2 {
+        fill: #f49cf4;
+        stroke: #edc5ed;
+        stroke-width: 30px;
+      }
+    </style>
+  </defs>
+  <circle class="cls-1" cx="551" cy="223" r="20"/>
+  <circle class="cls-1" cx="904" cy="74" r="20"/>
+  <circle class="cls-1" cx="932" cy="437" r="20"/>
+  <circle class="cls-2" cx="225.484" cy="259.36" r="177.359"/>
+
+</svg>
