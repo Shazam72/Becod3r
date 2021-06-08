@@ -2,7 +2,7 @@
   "development": {
     "username": "root",
     "password": "",
-    "database": "becod3r_dev",
+    "database": "becod3r",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
