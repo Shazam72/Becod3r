@@ -10,25 +10,14 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      models.Ressource.belongsTo(models.User,{
-        foreignKey:{
-          allowNull:false,
-        }
-      })
-      models.Ressource.belongsTo(models.Category,{
-        foreignKey:{
-          allowNull:false,
-        }
-      })
-
+      // define association here
     }
   };
   Ressource.init({
     path: DataTypes.STRING,
     nom: DataTypes.STRING,
-    authorId:DataTypes.STRING,
-    categoryId:DataTypes.BIGINT,
-
+    authorId: DataTypes.STRING,
+    categoryId: DataTypes.BIGINT
   }, {
     sequelize,
     modelName: 'Ressource',

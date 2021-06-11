@@ -10,11 +10,10 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      models.Country.hasMany(models.City)
+      // define association here
     }
   };
   Country.init({
-    id: DataTypes.BIGINT,
     country: DataTypes.STRING
   }, {
     sequelize,

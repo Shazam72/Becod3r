@@ -2,31 +2,38 @@
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.createTable('Users', {
-      email: {
-        primaryKey: true,
+      id: {
         allowNull: false,
-        type: Sequelize.STRING,
+        autoIncrement: true,
+        primaryKey: true,
+        type: Sequelize.INTEGER
+      },
+      email: {
+        type: Sequelize.STRING
       },
       nom: {
-        allowNull: false,
         type: Sequelize.STRING
       },
       prenom: {
-        allowNull: false,
         type: Sequelize.STRING
       },
       date_naissance: {
         type: Sequelize.DATE
       },
       tel: {
-        type: Sequelize.INTEGER
+        type: Sequelize.STRING
       },
       password: {
-        allowNull: false,
         type: Sequelize.STRING
       },
       token: {
         type: Sequelize.STRING
+      },
+      roleId: {
+        type: Sequelize.BIGINT
+      },
+      cityId: {
+        type: Sequelize.BIGINT
       },
       createdAt: {
         allowNull: false,
@@ -35,23 +42,7 @@ module.exports = {
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE
-      },
-      roleId:{
-        type:Sequelize.BIGINT,
-        allowNull: false,
-        references:{
-          model:"Roles",
-          key:"id"
-        },
-        default:"1"
-      },
-      cityId:{
-        type:Sequelize.BIGINT,
-        references:{
-          model:'Cities',
-          key:'id'
-        }
-      },
+      }
     });
   },
   down: async (queryInterface, Sequelize) => {

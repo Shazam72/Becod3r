@@ -18,9 +18,9 @@ export class Nav extends Component {
   componentDidMount() {}
   handleLoginBtn = () => {
     setTimeout(() => {
-      if (window.location.pathname.includes("/login")) {
+      if (window.location.pathname.includes("/auth/login")) {
         console.log("login");
-      } else if (window.location.pathname.includes("/logup")) {
+      } else if (window.location.pathname.includes("/auth/logup")) {
         console.log("login");
       }
     }, 1000);
@@ -67,7 +67,7 @@ export class Nav extends Component {
           </Link>
           <Link
             onClick={this.handleClick}
-            to="/login"
+            to="/auth/login"
             className="text-decoration-none px-3 py-2 text-white bg-colored rounded-pill mx-3"
           >
             Se connecter

@@ -4,6 +4,7 @@ import { InputEmail, InputText, InputPassword } from "../inputs/index";
 import { SubmitForm as BtnSubmitForm } from "../buttons/index";
 import validator from "validator";
 
+
 export class LogupForm extends Component {
   constructor(props) {
     super(props);
@@ -20,13 +21,24 @@ export class LogupForm extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
+    let {nom,prenom,email,password,password_confirm} =this.state
+    fetch(e.target.action,{
+      method:'POST',
+      headers:{
+        "Content-Type":"application/json"
+      },
+      body:JSON.stringify({nom,prenom,email,password,password_confirm}),
+      credentials:'include'
+    }).then(resp=>resp.json()).then(resp=>{
+      console.log(resp);
+    })
   };
 
   validateForm = () => {
     let { nom, prenom, email, password, password_confirm } = this.state;
     if (
-      validator.isAlphanumeric(nom) &&
-      validator.isAlphanumeric(prenom) &&
+      /[a-zA-Z0-9\-.éè]/.test(nom) &&
+      /[a-zA-Z0-9\-.éè]/.test(prenom) &&
       validator.isEmail(email) &&
       validator.isStrongPassword(password) &&
       password === password_confirm
@@ -98,7 +110,7 @@ export class LogupForm extends Component {
                 Vous avez déja un compte ?
                 <br />
                 Alors <br />
-                <Link to="/login" className="text-decoration-none fw-bold fs-2">
+                <Link to="/auth/login" className="text-decoration-none fw-bold fs-2">
                   Connectez-vous
                 </Link>
               </p>

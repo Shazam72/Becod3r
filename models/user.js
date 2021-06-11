@@ -10,19 +10,7 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      models.User.belongsTo(models.Role,{
-        foreignKey:{
-          allowNull: false,
-        }
-      })
-
-      models.User.belongsTo(models.City)
-
-      models.User.hasMany(models.Message)
-
-      models.User.hasMany(models.Ressource)
-
-
+      // define association here
     }
   };
   User.init({
@@ -30,11 +18,11 @@ module.exports = (sequelize, DataTypes) => {
     nom: DataTypes.STRING,
     prenom: DataTypes.STRING,
     date_naissance: DataTypes.DATE,
-    tel: DataTypes.INTEGER,
+    tel: DataTypes.STRING,
     password: DataTypes.STRING,
     token: DataTypes.STRING,
-    roleId:DataTypes.BIGINT,
-    cityId:DataTypes.BIGINT,
+    roleId: DataTypes.BIGINT,
+    cityId: DataTypes.BIGINT
   }, {
     sequelize,
     modelName: 'User',

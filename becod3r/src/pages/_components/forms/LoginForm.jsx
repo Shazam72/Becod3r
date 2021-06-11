@@ -4,6 +4,8 @@ import { InputEmail, InputPassword } from "../inputs";
 import { SubmitForm as BtnSubmitForm } from "../buttons";
 import validator from "validator";
 
+
+
 export class LoginForm extends Component {
   constructor(props) {
     super(props);
@@ -20,7 +22,17 @@ export class LoginForm extends Component {
   getFormdata = () => {};
   handleSubmit = (e) => {
     e.preventDefault();
-    console.log(e.target);
+    let {email,password,password_confirm} =this.state
+    fetch(e.target.action,{
+      method:'POST',
+      headers:{
+        "Content-Type":"application/json"
+      },
+      body:JSON.stringify({email,password,password_confirm}),
+      credentials:'include'
+    }).then(resp=>resp.json()).then(resp=>{
+      console.log(resp);
+    })
   };
 
   validateForm = () => {
@@ -87,7 +99,7 @@ export class LoginForm extends Component {
                 Vous n'avez pas de compte ?
                 <br />
                 Alors <br />
-                <Link to="/logup" className="text-decoration-none fw-bold fs-2">
+                <Link to="/auth/logup" className="text-decoration-none fw-bold fs-2">
                   Inscrivez-vous
                 </Link>
               </p>

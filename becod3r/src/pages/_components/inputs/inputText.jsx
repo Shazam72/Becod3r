@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import validator from "validator";
 
+
+
 export class InputText extends Component {
   constructor(props) {
     super(props);
@@ -15,7 +17,7 @@ export class InputText extends Component {
   }
 
   renderMsg = () => {
-    let valid = validator.isAlphanumeric(this.state.value);
+    let valid = /[a-zA-Z0-9\-.éè]/.test(this.state.value);
 
     return valid
       ? { type: "success", msgContent: "Valide" }

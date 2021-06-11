@@ -10,13 +10,11 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      models.Forum.belongsTo(models.SubCategory)
-      models.Forum.hasMany(models.Message)
+      // define association here
     }
   };
   Forum.init({
-    id: DataTypes.BIGINT,
-    subcategory: DataTypes.BIGINT
+    sub_categoryId: DataTypes.BIGINT
   }, {
     sequelize,
     modelName: 'Forum',

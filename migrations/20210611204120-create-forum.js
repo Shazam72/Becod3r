@@ -6,9 +6,9 @@ module.exports = {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.BIGINT
+        type: Sequelize.INTEGER
       },
-      subcategory: {
+      sub_categoryId: {
         type: Sequelize.BIGINT
       },
       createdAt: {

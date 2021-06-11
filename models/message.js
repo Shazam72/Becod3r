@@ -10,13 +10,14 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      models.Message.belongsTo(models.User)
-      models.Message.belongsTo(models.Chat)
-      models.Message.belongsTo(models.Forum)
+      // define association here
     }
   };
   Message.init({
-    message: DataTypes.TEXT
+    message: DataTypes.TEXT,
+    forumId: DataTypes.BIGINT,
+    chatId: DataTypes.BIGINT,
+    userId: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'Message',

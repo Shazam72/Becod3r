@@ -23,7 +23,7 @@ export default class LogInUp extends Component {
         {this.state.mode === "login" ? (
           <LoginForm />
         ) : (
-          <LogupForm action={serverURL} />
+          <LogupForm />
         )}
       </>
     );

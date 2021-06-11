@@ -2,28 +2,23 @@
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.createTable('Ressources', {
-      path: {
+      id: {
+        allowNull: false,
+        autoIncrement: true,
         primaryKey: true,
+        type: Sequelize.INTEGER
+      },
+      path: {
         type: Sequelize.STRING
       },
       nom: {
         type: Sequelize.STRING
       },
       authorId: {
-        type: Sequelize.STRING,
-        allowNull: false,
-        references:{
-          model:'Users',
-          key:'email'
-        }
+        type: Sequelize.STRING
       },
-      categoryId:{
-        type:Sequelize.BIGINT,
-        allowNull:false,
-        references:{
-          model:'Categories',
-          key:'id'
-        }
+      categoryId: {
+        type: Sequelize.BIGINT
       },
       createdAt: {
         allowNull: false,

@@ -1,7 +1,4 @@
 const validator = require("validator");
-validator.isGoodName = (name) => {
-  return /[a-zA-Z0-9\-.éè]/.test(name);
-};
 const db=require('../models')
 
 module.exports = {
@@ -44,11 +41,11 @@ module.exports = {
         isOk = false;
         message.general = `Données d'identification incomplètes`;
       } else {
-        if (!validator.isGoodName(nom)){
+        if (!/[a-zA-Z0-9\-.éè]/.test(nom)){
           isOk = false;
           message.nom = `Le nom est incorrect`;
         }
-        if (!validator.isGoodName(prenom)){
+        if (!/[a-zA-Z0-9\-.éè]/.test(prenom)){
           isOk = false;
           message.prenom = `Le nom est incorrect`;
         }

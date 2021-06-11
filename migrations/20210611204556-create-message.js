@@ -1,24 +1,24 @@
 'use strict';
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('Cities', {
+    await queryInterface.createTable('Messages', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
+        type: Sequelize.INTEGER
+      },
+      message: {
+        type: Sequelize.TEXT
+      },
+      forumId: {
         type: Sequelize.BIGINT
       },
-      city: {
-        allowNull: false,
-        type: Sequelize.STRING
+      chatId: {
+        type: Sequelize.BIGINT
       },
-      country: {
-        type: Sequelize.BIGINT,
-        allowNull: false,
-        references:{
-          model:'Countries',
-          key:'id'
-        }
+      userId: {
+        type: Sequelize.STRING
       },
       createdAt: {
         allowNull: false,
@@ -31,6 +31,6 @@ module.exports = {
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('Cities');
+    await queryInterface.dropTable('Messages');
   }
 };
