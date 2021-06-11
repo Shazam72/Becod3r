@@ -42,7 +42,8 @@ module.exports = {
         references:{
           model:"Roles",
           key:"id"
-        }
+        },
+        default:"1"
       },
       cityId:{
         type:Sequelize.BIGINT,

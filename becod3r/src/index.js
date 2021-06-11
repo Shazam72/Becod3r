@@ -5,14 +5,24 @@ import { Home,LogInUp } from "./pages/index";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "./index.scss";
+require('dotenv').config();
 
 function App() {
+  fetch("http://localhost:3001",{
+    credentials:"include",
+    mode:"no-cors"
+    // headers:{
+    //   "Access-Control-Allow-Origin":true
+    // }
+  })
   return (
     <>
     <Router>
       <Route exact path="/" component={Home} />
       <Route exact path="/login" render={(props)=><LogInUp {...props} mode="login" />} />
       <Route exact path="/logup" render={(props)=><LogInUp {...props} mode="logup" />} />
+      <Route exact path="/get-start" render={(props)=><LogInUp {...props} mode="logup" />} />
+      <Route exact path="/profile" render={(props)=><LogInUp {...props} mode="logup" />} />
     </Router>
     </>
   );

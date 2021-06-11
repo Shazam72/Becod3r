@@ -6,7 +6,7 @@ export class InputEmail extends Component {
     super(props);
 
     this.state = {
-      value: "",
+      value: "" ,
       statut: false,
       animateInput: false,
       validInput: "",
@@ -23,7 +23,7 @@ export class InputEmail extends Component {
   };
 
   handleTyping = (e) => {
-    let inputValue = e.target.value;
+    let inputValue = this.props.onValueChange(e);
     setTimeout(() => {
       this.setState({ value: inputValue });
       this.setState({ animateInput: inputValue ? true : false });
@@ -44,7 +44,7 @@ export class InputEmail extends Component {
           onInput={this.handleTyping}
           name={this.props.name ?? "email"}
           className=" outline-none border-0 fs-3 w-100 h-100 position-relative"
-          value={this.state.value}
+          value={this.props.value ??this.state.value}
         />
         <label
           className={`pointer-events-none fw-bold position-absolute ${

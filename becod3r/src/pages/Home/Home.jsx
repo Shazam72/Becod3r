@@ -1,6 +1,6 @@
 import { Component } from "react";
 import { Link } from "react-router-dom";
-import { FormationCard, Nav, Footer } from "./components";
+import { FormationCard, Nav, Footer } from "../_components";
 
 export default class Home extends Component {
   render() {
@@ -17,7 +17,7 @@ export default class Home extends Component {
             <h3 className="my-3 fs-1">Alors n'attends pas !!!</h3>
             <div className="link-start">
               <Link
-                to="/commencer"
+                to="/get-start"
                 className="text-decoration-none my-3 rounded-pill outline-none border-0 text-white px-5 py-4 fw-bold"
               >
                 Commence maintenant

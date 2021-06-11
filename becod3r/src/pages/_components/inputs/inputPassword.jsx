@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import validator from "validator";
 
-export class InputText extends Component {
+export class InputPassword extends Component {
   constructor(props) {
     super(props);
 
@@ -11,36 +11,34 @@ export class InputText extends Component {
       animateInput: false,
       validInput: "",
       msg: this.renderMsg.bind(this),
+      showPassword:false,
     };
   }
 
   renderMsg = () => {
-    let valid = validator.isAlphanumeric(this.state.value);
+    let valid = validator.isStrongPassword(this.state.value);
 
     return valid
       ? { type: "success", msgContent: "Valide" }
-      : { type: "danger", msgContent: "Vous devez entrer des caractères alpha-numériques" };
+      : {
+          type: "danger",
+          msgContent:
+            "Utilisez des lettres miniscules et majuscules, des chiffres et des caractères spéciaux",
+        };
   };
 
   handleTyping = (e) => {
-    let inputValue = e.target.value;
+    let inputValue = this.props.onValueChange(e);
     setTimeout(() => {
       this.setState({ value: inputValue });
       this.setState({ animateInput: inputValue ? true : false });
       this.setState({ msg: this.renderMsg() });
-      this.handleCharacSize(inputValue);
     }, 0.00001);
   };
 
-  handleCharacSize = (value) => {
-    if (value.length > 50)
-      this.setState({
-        msg: {
-          type: "danger",
-          msgContent: "La valeur maximale est 50 charactères",
-        },
-      });
-  };
+  eyeAction=(e)=>{
+    e.target.classList.contains("fa-eye") ?this.setState({showPassword :true}):this.setState({showPassword :false})
+  }
 
   render() {
     let animateInput = this.state.animateInput;
@@ -51,11 +49,11 @@ export class InputText extends Component {
         } ${this.props.marginX ?? ""}`}
       >
         <input
-          type="text"
+          type={`${this.state.showPassword ?'text':'password'}`}
           onInput={this.handleTyping}
           name={this.props.name ?? "champDeTexte"}
           className=" outline-none border-0 fs-3 w-100 h-100 position-relative"
-          value={this.state.value}
+          value={this.props.value ??this.state.value}
         />
         <label
           className={`pointer-events-none fw-bold position-absolute ${
@@ -74,6 +72,10 @@ export class InputText extends Component {
         >
           {this.state.msg.msgContent}
         </p>
+        <i
+          onClick={this.eyeAction}
+          className={`fas fa-${this.state.showPassword ?'eye-slash':'eye'} position-absolute colored`}
+        ></i>
       </div>
     );
   }
