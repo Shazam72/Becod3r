@@ -21,7 +21,7 @@ export class LogupForm extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    let {nom,prenom,email,password,password_confirm} =this.state
+    let {nom,prenom,email,password,password_confirm} = this.state
     fetch(e.target.action,{
       method:'POST',
       headers:{

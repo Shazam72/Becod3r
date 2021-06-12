@@ -8,10 +8,8 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      categoryId: {
-        type: Sequelize.BIGINT
-      },
       sub_category: {
+        allowNull:false,
         type: Sequelize.STRING
       },
       createdAt: {

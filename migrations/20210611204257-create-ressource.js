@@ -9,16 +9,12 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       path: {
+        allowNull:false,
         type: Sequelize.STRING
       },
       nom: {
+        allowNull:false,
         type: Sequelize.STRING
-      },
-      authorId: {
-        type: Sequelize.STRING
-      },
-      categoryId: {
-        type: Sequelize.BIGINT
       },
       createdAt: {
         allowNull: false,

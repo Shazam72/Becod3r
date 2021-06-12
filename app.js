@@ -1,3 +1,5 @@
+const { sequelize } = require("./models");
+
 const express = require("express"),
   cookieParser = require("cookie-parser"),
   cors = require("cors"),
@@ -42,9 +44,12 @@ app
   });
 
 //Routes definition
-app.get("/", (req, res, next) => {
-  res.json("Welcome on Becod3r");
-});
-app.use("/auth",routerAuth);
+sequelize.sync().then(()=>{
+  console.log("Database connected and syncronised");
+  app.get("/", (req, res, next) => {
+    res.json("Welcome on Becod3r");
+  });
+  app.use("/auth",routerAuth);
+})
 
 app.listen(process.env.PORT);

@@ -62,7 +62,6 @@ export class LoginForm extends Component {
         <form
           onSubmit={this.handleSubmit}
           method="POST"
-          action={this.props.action ?? "/"}
           autoComplete="off"
           className="p-5"
         >

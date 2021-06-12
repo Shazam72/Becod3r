@@ -9,16 +9,8 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       message: {
+        allowNull:false,
         type: Sequelize.TEXT
-      },
-      forumId: {
-        type: Sequelize.BIGINT
-      },
-      chatId: {
-        type: Sequelize.BIGINT
-      },
-      userId: {
-        type: Sequelize.STRING
       },
       createdAt: {
         allowNull: false,
