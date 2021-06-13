@@ -54,6 +54,9 @@ body {
 .bg-colored {
   background: $base-color;
 }
+.z-index-10{
+  z-index: 10;
+}
 .colored-hover {
   &:hover {
     color: darken($color: $base-color, $amount: 5);
@@ -429,6 +432,10 @@ footer {
     }
   }
 }
+.course-card:hover{
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.513)!important;
+}
+
 
 
 //Media queries

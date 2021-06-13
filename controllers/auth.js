@@ -25,8 +25,8 @@ module.exports = {
                     req.session.authenticated=true
                   res.status(200).json({
                     token: authToken(userFound),
+                    auth:req.session.authenticated
                   });
-                  console.log(req.session.authenticated);
                 } else res.status(403).json({ error: "Invalid password" });
               }
             );
@@ -58,7 +58,9 @@ module.exports = {
                 prenom: prenom,
                 password: passwordHashed,
               }).then((user) => {
-                res.status(200).json({ userEmail: user.email });
+                res.status(200).json({ 
+                  userEmail: user.email,
+                  registred: true});
               });
             });
           } else res.status(409).json({ error: "User already exist" });
@@ -69,7 +71,9 @@ module.exports = {
     }
   },
 
-  validFormData: (reqBody) => {
-    console.log({ ...reqBody });
-  },
+  verifyAuth:(req,res,next)=>{
+   res.status(200).json({
+    authenticated:req.session.authenticated
+   })
+  }
 };

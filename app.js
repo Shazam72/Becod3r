@@ -39,13 +39,16 @@ app
     res.cookie("csrf", process.env.CSRF_TOKEN, {
       httpOnly: true,
     });
-
+    if (req.session.authenticated ===undefined) {
+      req.session.authenticated=false
+    }
+    
     next();
   });
 
-//Routes definition
-sequelize.sync().then(()=>{
-  console.log("Database connected and syncronised");
+  sequelize.sync().then(()=>{
+    console.log("Database connected and syncronised");
+    //Routes definition
   app.get("/", (req, res, next) => {
     res.json("Welcome on Becod3r");
   });
