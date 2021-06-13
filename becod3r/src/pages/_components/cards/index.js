@@ -1,4 +1,5 @@
 import { FormationCard } from "./FormationCard";
+import { CourseCard } from "./CourseCard";
 
 
-export { FormationCard }
+export { FormationCard,CourseCard }

@@ -110,7 +110,27 @@ header.main-header {
 .text-segoe {
   font-family: "Segoe Print Bold";
 }
+input.colored-placeholder::placeholder{
+  color: $base-color;
+}
+.fw-900{
+  font-weight: 900;
+}
+.bordered-title{
+  position: relative;
 
+  &::after{
+    position: absolute;
+    bottom: -1rem;
+    left: 50%;
+transform: translateX(-50%);
+    background: $base-color;
+    width: 50%;
+    border-radius: 999px;
+    height: .5rem;
+    content: '';
+  }
+}
 //Home page
 
 section#first-section {
@@ -143,6 +163,12 @@ section#first-section {
       box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.438);
     }
   }
+.text-uppercase{
+  text-transform: uppercase;
+}
+.text-capitalize{
+  text-transform: capitalize;
+}
 
   .text-decoration-none {
     background: darken($color: $base-color, $amount: 10);
@@ -372,6 +398,38 @@ footer {
     min-width: 40rem;
   }
 }
+
+.file-reader-img{
+  height: 35rem;
+  width: 35rem;
+  min-width: 10rem;
+  min-height: 10rem;
+  border:2px solid rgb(0, 0, 0);
+  border-radius: 50%;
+
+  & label.position-absolute{
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    color: white;
+    display: none;
+  }
+  &:hover{
+    &::after{
+      content: '';
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.267);
+      position: absolute;
+      border-radius:50%;
+    }
+    & label.position-absolute{
+      z-index: 100;
+      display: block;
+    }
+  }
+}
+
 
 //Media queries
 @media screen and (max-width: 766px) {

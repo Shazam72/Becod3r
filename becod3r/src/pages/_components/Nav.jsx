@@ -43,7 +43,10 @@ export class Nav extends Component {
         <Link to="/" className="">
           <img src="/img/logo.png" alt="Becod3r" className="logo" />
         </Link>
-        <nav className="offset-md-5 col-xs-10 d-flex justify-content-between align-items-center fw-bolder basic-navbar">
+
+        {this.props.children}
+
+        <nav className={`${this.props.noSpace===false ? "":"offset-md-5"} col-xs-10 d-flex justify-content-between align-items-center fw-bolder basic-navbar`}>
           <Link
             onClick={this.handleClick}
             to="/cours"
